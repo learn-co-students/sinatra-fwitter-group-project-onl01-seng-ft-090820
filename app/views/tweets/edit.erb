@@ -1,0 +1,14 @@
+
+<form action="/tweets/<%=@tweet.id%>" method="post">
+    <input type="hidden" name="_method", value="patch">
+    Content:
+    <input type="text" id="content" name="tweet[content]" value="<%=@tweet.content%>"><br>
+    <%if session[:error]%>
+      <p><%=session[:error]%></p>
+      <%session.clear%>
+    <%end%>
+    Update Your Tweet:
+
+    <input type="submit" name="submit" id="Edit Tweet" value="Edit Tweet">
+
+</form>

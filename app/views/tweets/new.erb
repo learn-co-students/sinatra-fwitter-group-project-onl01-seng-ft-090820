@@ -2,12 +2,14 @@
 <%= @error %>
   <form action='/tweets' method="post">
     Content:
-    <input type="text" name="content"><br>
+    <input type="text" id="content" name="tweet[content]"><br>
+    <%if session[:error]%>
+      <p><%=session[:error]%></p>
+      <%session.clear%>
+    <%end%>
     Create Your Tweet:
 
     <input type="submit" name="submit" id="submit">
-
-    <input type="submit" name="submit">
 
   </form>
 

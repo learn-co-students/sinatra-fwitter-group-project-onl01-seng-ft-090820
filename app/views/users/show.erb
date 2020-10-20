@@ -1,0 +1,4 @@
+<h1><%=@user.username%>'s page</h1>
+<%@user.tweets.reverse.each do |tweet|%>
+    <p><%=tweet.content%></p>
+<%end%>
