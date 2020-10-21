@@ -1,0 +1,14 @@
+<h3>Sign Up</h3>
+<form action="/signup" method="POST">
+Username: <input type="text" name="username">
+Email: <input type="text" name="email">
+Password: <input type="password" name="password">
+<input class="btn btn-primary" type="submit">
+</form>
+
+<% if @user %>
+<h1>The Errors</h1>
+<% @user.errors.full_messages.each do |m|%>
+<p><%= m %></p>
+<% end %>
+<% end%>
