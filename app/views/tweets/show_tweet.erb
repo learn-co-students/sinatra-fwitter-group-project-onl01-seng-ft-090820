@@ -1,8 +1,24 @@
-<p><%= @tweet.content %>
+  
+<h1><%if @tweet.user == current_user %>You<% else %><%= @tweet.user.username %><% end %> tweeted:</h1>
 
-  <form method="post" action="/tweets/<%=@tweet.id%>/delete">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Tweet">
+
+
+<div class="tweet">
+  <div class="username">
+    <a href="/users/<%= @tweet.user.slug %>">@<%= @tweet.user.username %></a>
+  </div>
+  <div class="tweet-text">
+      <%= @tweet.content %>
+  </div>
+</div>
+
+<div class="<% if @tweet.user == current_user %>click<% else %>no-click<% end %>">
+<div class="button" id="Edit Tweet"><a href="/tweets/<%= @tweet.id %>/edit">Edit Tweet</a></div>
+
+<div class="button-2">
+  <form action="/tweets/<%= @tweet.id %>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input class="submit" type="submit" value="Delete Tweet" id="Delete Tweet">
   </form>
-
-  <a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet</a> 
+</div>
+</div>
